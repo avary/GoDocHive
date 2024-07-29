@@ -103,19 +103,9 @@ func main() {
 	http.HandleFunc("/", serveFiles)
 	http.HandleFunc("/search", handleSearch)
 
-	fmt.Println("Server running at http://localhost:3030")
+	fmt.Println("Server running at http://localhost:3030/search")
 	log.Fatal(http.ListenAndServe(":3030", nil))
 }
-
-// Helper function to check if a file has an allowed extension
-// func hasAllowedExtension(filename string) bool {
-// 	for _, ext := range allowedExtensions {
-// 		if strings.HasSuffix(filename, ext) {
-// 			return true
-// 		}
-// 	}
-// 	return false
-// }
 
 func hasAllowedExtension(filename string, extensions []string) bool {
 	for _, ext := range extensions {
